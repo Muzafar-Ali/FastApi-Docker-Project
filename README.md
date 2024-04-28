@@ -4,17 +4,19 @@
 
 ### Building the Docker Image for Development
 
-To build the image for development, execute the command :
-
+To build the image for development, without env variable execute the command :
 <div class="copy-button-container">
-  <code class="command">docker build --build-arg DATABASE_URL=your_database_url_here -t fisrt-docker-Image .
-</code>
+  <code class="command">docker build -f Dockerfile.dev -t fisrt-docker-image . </code>
+</div>
+
+To build the image for development, with environment variables command :
+<div class="copy-button-container">
+  <code class="command">docker build --build-arg DATABASE_URL=your_database_url_here -f Dockerfile.dev -t fisrt-docker-image . </de>
 </div>
 
 ### Checking Images
 
 To view all Docker images, use the command :
-
 <div class="copy-button-container">
   <code class="command">docker images</code>
 </div>
@@ -22,17 +24,15 @@ To view all Docker images, use the command :
 ### Verify the config:
 
 To Verify the config, use the command :
-
 <div class="copy-button-container">
-  <code class="command">docker inspect fisrt-docker-Image</code>
+  <code class="command">docker inspect fisrt-docker-image</code>
 </div>
 
 ### Running the Container for Dev:
 
 To run the container for Dev, use the following command:
-
 <div class="copy-button-container">
-  <code class="command">docker run -d --name dev-cont1 -p 8000:8000 fisrt-docker-Image</code>
+  <code class="command">docker run -d --name dev-cont1 -p 8000:8000 fisrt-docker-image</code>
 </div>
 
 **Explanation of command:**
