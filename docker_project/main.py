@@ -3,7 +3,6 @@ from sqlmodel import SQLModel, Field, Session, create_engine, select
 from contextlib import asynccontextmanager
 import os
 from dotenv import load_dotenv
-# Load environment variables from .env file
 load_dotenv()
 
 class Hero(SQLModel, table=True):
@@ -12,7 +11,7 @@ class Hero(SQLModel, table=True):
     secret_name: str
     age: int | None = None
 
-# Use the DATABASE_URL environment variable
+
 connection_string = os.getenv("DATABASE_URL")
 engine = create_engine(connection_string, echo=True) # type: ignore
 
@@ -29,7 +28,7 @@ async def lifespan(app: FastAPI):
 app: FastAPI = FastAPI(
     lifespan=lifespan,
     title="API for Docker connection",
-    description="this is api is created to run on docker",
+    description="this api is created to run on docker",
 )
 
 def get_session():
